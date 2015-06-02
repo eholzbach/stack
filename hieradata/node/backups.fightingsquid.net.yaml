@@ -1,0 +1,7 @@
+classes:
+  - backups::server
+
+backups::server::backup_dir:
+  - proteus.fightingsquid.net:/usr/home/echo
+  - proteus.fightingsquid.net:/root
+  - puppet.fightingsquid.net:/var/lib/puppet/ssl

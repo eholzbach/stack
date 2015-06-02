@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ ! -d /etc/puppet ]; then
+  sudo /usr/bin/git clone --recursive /opt/puppet.git /etc/puppet
+fi
+
+cd /etc/puppet
+sudo /usr/bin/git fetch --all
+sudo /usr/bin/git reset --hard origin/master
+sudo /usr/bin/git submodule init
+sudo /usr/bin/git submodule update --recursive

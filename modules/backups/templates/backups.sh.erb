@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if df | grep -q '<%= @nfs_share %>'
+  then
+  else
+    /sbin/mount <%= @nfs_host %>:<%= @nfs_share %> /mnt 
+fi
+
+if df | grep -q '<%= @nfs_share %>'
+  then
+  <% @backup_dir.each do |backup| -%>
+  <%= @usr_bin %>/rsync -aR --delete <%= backup %> /mnt/<%= backup.split('.')[0] %>/
+  <% end -%>
+
+  /bin/date > /mnt/last_backup
+  /sbin/umount /mnt 
+  exit 0
+fi

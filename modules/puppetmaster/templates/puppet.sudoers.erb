@@ -1,0 +1,3 @@
+Cmnd_Alias PUPPET_CMD = /usr/bin/git --git-dir=/opt/puppet.git --work-tree /etc/puppet checkout -f, /usr/bin/git clone --recursive /opt/puppet.git /etc/puppet, /usr/bin/git pull, /usr/bin/git submodule init, /usr/bin/git submodule update --recursive, /usr/bin/git fetch --all, /usr/bin/git reset --hard origin/master
+
+<%= @mortal %> ALL=(ALL) NOPASSWD: PUPPET_CMD

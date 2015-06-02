@@ -1,0 +1,18 @@
+classes:
+  - backups
+  - nrpe::services::apache
+  - nrpe::services::puppetmaster
+  - ops_firewall
+  - puppetmaster
+
+repo_host: true
+
+ops_firewall::rules:
+  '55 allow to puppetmaster':
+    port:
+      - 80
+      - 443
+      - 8140
+    proto:  tcp
+    source: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAug7R40FOueA9mj8zIPwtU/dNLlWUhgWNgqxa+njfOconVUJ+1H/fX0ARUXpqtq6a4Xmfktuw07kBIr1Ll91+86ye32QptjmJ4ZcFgHP1lX1MXL3afIIkx/uH3d5b3+8DzBNDiLQrN8LIlXGMZ6dDBeTsWmIoTEbKtKETekmwLVger1rMF9QoD2WwupEaMFQpxqMsBBE02t/tlKxDhlgUPI2cVdXr9YdBkkBSwfB5RGSuFKYEsF0D/5ux0dpM4O78Y0EAr0FNF6d7A8bLbPi2hzO+2MLPqqRZfkY1VU2ejeaQA27ATJaWXz3lJ84njS5p1rJ8lkyHVz6Sc5FBK7T43DA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBHBlcxq8Ni0jYDTDmpKomxgBBjuOnUard72EEwH4InTJ99]
+    action: accept

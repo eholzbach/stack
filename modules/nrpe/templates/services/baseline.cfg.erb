@@ -1,0 +1,10 @@
+command[check_collectd]=<%= @nrpe_plg %>/check_procs -c 1: -C collectd
+command[check_cron]=<%= @nrpe_plg %>/check_procs -c 1: -C <%= @cron %> 
+command[check_disk]=<%= @nrpe_plg %>/check_disk -w 20% -c 10% -p /
+command[check_load]=<%= @nrpe_plg %>/check_load -w 15,10,5 -c 30,25,20
+command[check_ntp]=<%= @nrpe_plg %>/check_procs -c 1: -C ntpd
+command[check_rsyslogd]=<%= @nrpe_plg %>/check_procs -c 1: -C rsyslogd
+command[check_total_procs]=<%= @nrpe_plg %>/check_procs -w 150 -c 200
+command[check_users]=<%= @nrpe_plg %>/check_users -w 2 -c 5 
+command[check_zombie_procs]=<%= @nrpe_plg %>/check_procs -w 5 -c 10 -s Z
+

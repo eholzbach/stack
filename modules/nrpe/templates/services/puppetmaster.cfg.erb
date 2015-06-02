@@ -1,0 +1,5 @@
+command[check_passengerh]=<%= @nrpe_plg %>/check_procs -c 1:1 -C PassengerHelper
+command[check_passengerl]=<%= @nrpe_plg %>/check_procs -c 1:1 -C PassengerLoggin
+command[check_passengerw]=<%= @nrpe_plg %>/check_procs -c 1:1 -C PassengerWatchd
+command[check_puppetdb]=<%= @nrpe_plg %>/check_procs -c 1:1 -a puppetdb.jar
+command[check_puppetmaster]=<%= @nrpe_plg %>/check_procs -c 1: -a puppetmasterd

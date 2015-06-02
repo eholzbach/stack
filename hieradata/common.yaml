@@ -1,0 +1,53 @@
+classes:
+  - baseline
+  - collectd
+  - nagios::client
+  - ntp
+  - nrpe
+  - nrpe::services::baseline
+  - repo
+  - rsyslog::client
+
+backups::server::nfs_host:   files.fightingsquid.net
+backups::server::nfs_share:  /volume1/backups
+
+collectd::host:   graphite.fightingsquid.net
+collectd::prefix: collectd
+
+nagios_host: nagios.fightingsquid.net
+
+ops_firewall::pre:
+  '000 accept all icmp':
+    proto:       icmp
+    action:      accept
+  '001 accept all to lo':
+    proto:       all
+    iniface:     lo
+    action:      accept
+  '002 reject local traffic not on loopback interface':
+    proto:       all
+    iniface:     '! lo'
+    destination: 127.0.0.1/8
+    action:      reject
+  '003 accept related established rules':
+    proto:       all
+    state:
+      - RELATED
+      - ESTABLISHED
+    action:      accept
+  '004 accept all to sshd':
+    dport:       22
+    proto:       tcp
+    action:      accept
+  '005 accept all to nrpe':
+    dport:       5666
+    proto:       tcp
+    action:      accept
+
+ops_firewall::post:
+  '999 drop all':
+    proto:       all
+    action:      drop
+
+rsyslog::client::log_local: true
+rsyslog::client::server:    logs.fightingsquid.net 

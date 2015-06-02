@@ -1,0 +1,48 @@
+[submodule "modules/stdlib"]
+	path = modules/stdlib
+	url = https://github.com/eholzbach/puppetlabs-stdlib.git
+[submodule "modules/graphite"]
+	path = modules/graphite
+	url = https://github.com/eholzbach/puppet-graphite.git
+[submodule "modules/apt"]
+	path = modules/apt
+	url = https://github.com/eholzbach/puppetlabs-apt.git
+[submodule "modules/firewall"]
+	path = modules/firewall
+	url = https://github.com/eholzbach/puppetlabs-firewall.git
+[submodule "modules/haproxy"]
+	path = modules/haproxy
+	url = https://github.com/eholzbach/puppetlabs-haproxy.git
+[submodule "modules/pkgng"]
+	path = modules/pkgng
+	url = https://github.com/eholzbach/puppet-pkgng.git
+[submodule "modules/logstash"]
+	path = modules/logstash
+	url = https://github.com/eholzbach/puppet-logstash.git
+[submodule "modules/file_concat"]
+	path = modules/file_concat
+	url = https://github.com/eholzbach/puppet-lib-file_concat.git
+[submodule "modules/elasticsearch"]
+	path = modules/elasticsearch
+	url = https://github.com/eholzbach/puppet-elasticsearch.git
+[submodule "modules/splunk"]
+	path = modules/splunk
+	url = https://github.com/eholzbach/puppetlabs-splunk.git
+[submodule "modules/staging"]
+	path = modules/staging
+	url = https://github.com/eholzbach/puppet-staging.git
+[submodule "modules/inifile"]
+	path = modules/inifile
+	url = https://github.com/eholzbach/puppetlabs-inifile.git
+[submodule "modules/rsyslog"]
+	path = modules/rsyslog
+	url = https://github.com/eholzbach/puppet-rsyslog.git
+[submodule "modules/pf"]
+	path = modules/pf
+	url = https://github.com/eholzbach/puppet-pf.git
+[submodule "modules/concat"]
+	path = modules/concat
+	url = https://github.com/eholzbach/puppetlabs-concat.git
+[submodule "modules/tarsnap"]
+	path = modules/tarsnap
+	url = https://github.com/eholzbach/puppet-tarsnap.git

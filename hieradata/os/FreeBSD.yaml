@@ -1,0 +1,42 @@
+# FreeBSD
+
+classes:
+  - pkgng
+
+# ntp module
+ntpdrift:     /var/db/ntpd.drift
+ntpn:         ntpd
+root_group:   wheel
+
+# baseline
+bin:          /usr/local/bin
+cron:         cron
+usr_bin:      /usr/local/bin
+pip_name:     py27-pip
+sshd_name:    sshd
+
+# collectd
+collectd::basedir:    /var/db/collectd
+collectd::etc_path:   /usr/local/etc
+collectd::pkgname:    collectd5
+collectd::plugindir:  /usr/local/lib/collectd
+collectd::root_group: wheel
+collectd::typesdb:    /usr/local/share/collectd/types.db
+
+# diamond
+etc_path:     /usr/local/etc
+
+# nrpe
+apache_name:  httpd
+nrpe_grp:     nagios
+nrpe_inc:     /usr/local/etc/nrpe.d/
+nrpe_osg:     wheel
+nrpe_pid:     /var/run/nrpe2/nrpe2.pid
+nrpe_pkg:
+              - nagios-plugins
+              - nrpe-ssl
+nrpe_plg:     /usr/local/libexec/nagios
+nrpe_pth:     /usr/local/etc/
+nrpe_srv:     nrpe2
+nrpe_usr:     nagios
+

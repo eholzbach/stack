@@ -1,0 +1,39 @@
+# Debian
+
+# ntp
+ntpdrift:     /var/lib/ntp/ntp.drift
+ntpn:         ntp
+root_group:   root 
+
+# baseline
+bin:          /bin
+cron:         cron
+usr_bin:      /usr/bin
+pip_name:     python-pip
+sshd_name:    ssh
+
+# collectd
+collectd::basedir:    /var/lib/collectd
+collectd::etc_path:   /etc/collectd
+collectd::pkgname:    collectd
+collectd::plugindir:  /usr/lib/collectd
+collectd::root_group: root
+collectd::typesdb:    /usr/share/collectd/types.db
+
+# diamond
+etc_path:     /etc
+
+# nrpe
+apache_name:  apache2
+nrpe_grp:     nagios
+nrpe_inc:     /etc/nagios/nrpe.d/
+nrpe_osg:     root
+nrpe_pid:     /var/run/nagios/nrpe.pid
+nrpe_pkg:
+              - nagios-nrpe-server
+              - nagios-plugins-basic
+              - nagios-plugins-standard
+nrpe_plg:     /usr/lib/nagios/plugins
+nrpe_pth:     /etc/nagios/
+nrpe_srv:     nagios-nrpe-server
+nrpe_usr:     nagios

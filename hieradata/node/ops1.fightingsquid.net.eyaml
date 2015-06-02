@@ -1,0 +1,44 @@
+classes:
+  - nrpe::services::apache
+  - nrpe::services::graphite
+  - ops_firewall
+
+ops_firewall::rules:
+  '50 allow all to graphite web':
+    port:
+      - 80
+      - 443
+    proto:  tcp
+    action: accept
+  '51 allow to carbon':
+    port:
+      - 2003
+      - 2004
+      - 7002
+    proto:  tcp
+    source: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAleGTUWIdSw40MopHcfLSxYLtIknF+wp4rq9p0qW2cxw8KbY/1pcuQSGCqC58PycKD8ThtOWBlF1WKi0fBnX5r3CZr7Y83mt8li/+EBlON2K+I3NqwrQIyE+7uMuxZorKLI0L8+NkcvwRDwJ2vDFMr9V4OaeGrfKhVq75CjSrTUCLxFQwagSsSiZ8E/JouR9v4LqKXDOx3CMk0CFg/eF3j3ymuImeMmv+Yk5rDaylOZxPvGM8X7V4zgcGVPtu+LwEwOd/dROBe7IivX40JlN4eyRfZBE2wWBBxOt1MH2+nUxPbNj8ykgcY06GprX2VTd7V58meNHk8wKiwEXKFmQ+xDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDHaYXUdh61bwFPm4CcrkXngBCLJZc8QOA/w8grZhdkxjny]
+    action: accept
+  '52 allow to carbon':
+    port:
+      - 2003
+      - 2004
+      - 7002
+    proto:  tcp
+    source: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAv/mLVWKxkQJlRvLdfUuBnnugJwxzjmdFP7kQbUUQN0HTlQNh/0QC0en1BeNOraeHiH5KKegyQxrfCPCSZUZQ/Hu4K5AWjnHAvv3OvnE3u7dqsLzijNn8I+jF9o5ugUvgFKau+kuW3/18rESlvm+e0nJFXTLW8Vb7JsV+BnOEhr9NuuCSfXWYQaYaXCwCtxaUpWJ9CwCZcANfNIeJ5ZaB5UI899rxDbhRfPlSt4XVPsmhAp/8B2FNJ+vXuFNnADA95g35RIzMPnOYjAJWHjvoEEMN2KSvs7HKZxYZNqeszDQfVWRUBFMkr93j5vJcxC3T0OiKpX39X2tqRoeLCoGpyzA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBD3dBMLzoCgWW19zAJBOTOvgBBs7FRt3o/9k03Q6FA6WZa+]
+    action: accept
+  '53 allow to carbon':
+    port:
+      - 2003
+      - 2004
+      - 7002
+    proto:  tcp
+    source: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEALv7EjP5R009BQgw4FYoUxHc0YYMxGG9nUQK7qDgxVIi19CIbxJ2jeN6QmKFghlXoUnQdCaCxbBcEfTV6H6LraMoBDA31wkuJMc4AslbT2Baw3hL8mGvRyykAoPsoPxYCrWu2CvGYv61yGtiVCokAoPCZFv4l4NXvIt/deyhCvEQnA6acja8G/yEU+KjbAHgsxQx8jKM2TTXs0WBgNUlzTXtTyRIn0cG0YyaHYPDOoV/DbA0VCXejr+fZeXuRfj//tXBY+x6QE9mM+bqvuDRuoWBs+s2Ir9WCL1A9u6/Cu+UPWb6kh6kvBb+FU7zRk9e6KQl49hJgM9KecN2WkNoPRzA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDpr/ZWWxlgPfSX4+RW0W6WgBBIHTgAjJQfLj4du9asPFpO]
+    action: accept
+  '54 allow to carbon':
+    port:
+      - 2003
+      - 2004
+      - 7002
+    proto:  tcp
+    source: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAHp/Rfts7yLAJahSNpCsRLaR8XlnFWw8mmg/MepQH0/DSn7aFDYdtELl1aCvvr1fN1Zqg+iF3stI90mwFkhH+mq9cm3N1L4pri0d/9+a/wIb+s5xl3yv2LQGM2FsKb6FKVO8KPYRZubPB+voVHVxcKjKIMf0IuAclvlBXDpGyxYEd2fvGy1xfpMON7ocnOm9mgMRUcPq6cGxb2LDK3nNeBlUZ1fbKKtyT/OD29D2SBcYrnAOIBWoyF46f3o085h57urzuFA9dXcJ90flgg/RkDdx63uj0dSLE0HfIWbBiY6Jp2MXAtwGVcWVH4niLtNxs5dEUrlEc4hmeUdP0TbDMIDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDBkqdc0suGB9jBRI69qyERgBA4hredS0o8o00ZssNE6Fzh]
+    action: accept

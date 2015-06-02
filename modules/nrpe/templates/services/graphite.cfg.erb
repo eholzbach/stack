@@ -1,0 +1,2 @@
+command[check_carbon]=<%= @nrpe_plg %>/check_procs -c 1: -a carbon-cache.py 
+command[check_wsgi]=<%= @nrpe_plg %>/check_procs -c 1: -a wsgi:graphite

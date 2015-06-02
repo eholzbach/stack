@@ -1,0 +1,49 @@
+# CentOS
+
+# ntp
+ntpdrift:     /var/lib/ntp/drift 
+ntpn:         ntpd
+root_group:   root 
+
+# baseline
+bin:          /bin
+cron:         crond
+usr_bin:      /usr/bin
+pip_name:     python-pip
+sshd_name:    sshd
+
+# collectd
+collectd::basedir:    /var/lib/collectd
+collectd::etc_path:   /etc
+collectd::pkgname:    collectd
+collectd::plugindir:  /usr/lib64/collectd
+collectd::root_group: root
+collectd::typesdb:    /usr/share/collectd/types.db
+
+# diamond
+etc_path:     /etc
+
+#nrpe
+nrpe_grp:   nrpe
+nrpe_inc:   /etc/nrpe.d/
+nrpe_osg:   root
+nrpe_pid:   /var/run/nrpe/nrpe.pid
+nrpe_pkg:
+            - nrpe
+            - nagios-common
+            - nagios-plugins-disk
+            - nagios-plugins-http
+            - nagios-plugins-load
+            - nagios-plugins-log
+            - nagios-plugins-ntp
+            - nagios-plugins-ping
+            - nagios-plugins-procs
+            - nagios-plugins-snmp
+            - nagios-plugins-ssh
+            - nagios-plugins-swap
+            - nagios-plugins-tcp
+            - nagios-plugins-users
+nrpe_plg:   /usr/lib64/nagios/plugins
+nrpe_pth:   /etc/nagios/
+nrpe_srv:   nrpe
+nrpe_usr:   nrpe
