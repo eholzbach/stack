@@ -6,8 +6,8 @@
     - secrets
     - common
 :backends:
-    - yaml
     - eyaml
+    - yaml
 :yaml:
     :datadir: '/etc/puppet/hieradata'
 :eyaml:
