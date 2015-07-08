@@ -16,8 +16,6 @@ collectd::prefix: collectd
 
 nagios_host: nagios.fightingsquid.net
 
-nagios::client::monitor_host: true 
-
 ops_firewall::pre:
   '000 accept all icmp':
     proto:       icmp
