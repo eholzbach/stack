@@ -351,13 +351,14 @@ LoadPlugin write_graphite
 #	Port 7634
 #</Plugin>
 
+<% if @virtual != 'jail' -%>
 <Plugin interface>
 <% @interfaces.split(',').each do |iface| -%>
         Interface "<%= iface %>"
 <% end -%>
 	IgnoreSelected false
 </Plugin>
-
+<% end -%>
 #<Plugin ipmi>
 #	Sensor "some_sensor"
 #	Sensor "another_one"

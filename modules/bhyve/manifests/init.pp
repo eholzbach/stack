@@ -12,7 +12,7 @@ class bhyve {
     ],
   }
 
-  augeas { 'rc_conf':
+  augeas { 'bhyve_rc_conf':
     context => '/files/etc/rc.conf',
     changes => [
       "set cloned_interfaces '\"bridge0 tap0 tap1 tap2 tap3 tap4 tap5 tap6\"'",

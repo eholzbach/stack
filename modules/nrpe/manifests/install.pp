@@ -10,5 +10,12 @@ class nrpe::install ( ) {
     file {'/usr/local/etc/nrpe.d':
       ensure => directory,
     }
+
+    augeas { 'rc_conf':
+      context => '/files/etc/rc.conf',
+      changes => [
+        "set nrpe2_enable '\"YES\"'",
+      ],
+    }
   }
 }

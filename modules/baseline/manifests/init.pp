@@ -48,6 +48,28 @@ class baseline () {
 
 
   if $::kernel == 'FreeBSD' {
+
+    augeas { 'default_rc_conf':
+      context => '/files/etc/rc.conf',
+      changes => [
+        "set dumpdev '\"NO\"'",
+        "set nrpe2_enable '\"YES\"'",
+        "set rsyslogd_enable '\"YES\"'",
+        "set rsyslogd_pidfile '\"/var/run/syslog.pid\"'",
+        "set sshd_enable '\"YES\"'",
+        "set syslogd_enable '\"NO\"'",
+      ],
+    }
+
+    if $::virtual == 'physical' {
+      augeas { 'physical_rc_conf':
+        context => '/files/etc/rc.conf',
+        changes => [
+          "set powerd_enable '\"YES\"'",
+        ],
+      }
+    }
+
     package { 'autoconf': ensure => latest }
     package { 'automake': ensure => latest }
     package { 'gmake':    ensure => latest }

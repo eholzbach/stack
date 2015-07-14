@@ -1,0 +1,19 @@
+<% @jailhost.each_pair do |jailhost| -%>
+<%= @name %> {
+        allow.mount;
+        allow.raw_sockets = <%= allow_raw_sockets %>;
+        allow.set_hostname = 0;
+        allow.sysvipc = 0;
+        exec.clean;
+        exec.consolelog = "/var/log/jail_<%= @name %>_console.log";
+        exec.system_user = "root";
+        exec.jail_user = "root";
+        exec.start += "/bin/sh /etc/rc";
+        exec.stop = "/bin/sh /etc/rc.shutdown";
+        host.hostname = "<%= host_hostname %>";
+        interface = "<%= interface %>";
+        ip4.addr += "<%= interface %>|<%= ip4_addr %>/32";
+        mount.devfs;
+        path = "/usr/local/jails/<%= @name %>";
+}
+<% end -%>

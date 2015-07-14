@@ -1,0 +1,11 @@
+classes:
+  - bhyve
+  - jails
+
+jails::hosts:
+  'nagios':
+    allow_raw_sockets: '1'
+    host_hostname:     nagios.fightingsquid.net
+    interface:         re0
+    ip4_addr:          ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAC51/caNdU9ejwBX1wXvgqhGKpBa1SdLJAx719e/IM2gFqdi4cdN54IWFq6C+RQ5RsVFzOmqOck+LUYSTPglpOgoniGhOV4Wx3dSa4g5OnwIFy1ll5vLmGP3astWpVIk/6VByPDT4j+2Qwg8zDRZwthYPq+xt/lx1f4e+RfP6brQBwdCAqDfE+RcNKg4s5yG15uWkY6X0CDc8q/Sfitf9JzNJmTHDf0YiL/wlbrZ7Jba+Mk6oGebpfubKPA8Y6m/XyDWnTIXKVpFoFUreEJY4E29LZeHbx2Nti7CZ/o3erL39KvwK4lNTtHLl5MKr60hnJw5gBp42Io+uk0NLEoFP6TA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAUTDcMmHQODHw8kLWqEyW2gBB0tefNxTZ1o+Fc+/biBbNj]
+
