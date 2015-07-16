@@ -6,14 +6,21 @@
         allow.sysvipc = 0;
         exec.clean;
         exec.consolelog = "/var/log/jail_<%= @name %>_console.log";
-        exec.system_user = "root";
         exec.jail_user = "root";
-        exec.start += "/bin/sh /etc/rc";
+        exec.prestart = "ifconfig epair<%= inumber %> create up";
+        exec.prestart += "ifconfig bridge0 addm epair<%= inumber %>a";
+        exec.poststop += "ifconfig epair<%= inumber %>a destroy";
+        exec.start = "/bin/sh /etc/rc";
+        exec.start += "/sbin/ifconfig lo0 127.0.0.1 up";
+        exec.start += "/sbin/ifconfig epair<%= inumber %>b inet <%= ip4_addr %> netmask <%= mask %> up";
+        exec.start += "/sbin/route add default <%= gate %>";
         exec.stop = "/bin/sh /etc/rc.shutdown";
+        exec.system_user = "root";
         host.hostname = "<%= host_hostname %>";
         interface = "<%= interface %>";
-        ip4.addr += "<%= interface %>|<%= ip4_addr %>/32";
         mount.devfs;
         path = "/usr/local/jails/<%= @name %>";
+        vnet;
+        vnet.interface = "<%= interface %>";
 }
 <% end -%>
