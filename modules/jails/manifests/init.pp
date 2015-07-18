@@ -17,5 +17,11 @@ class jails (
       "set jail_enable '\"YES\"'",
     ],
   }
+
+  file { '/usr/local/jails':
+    ensure => directory,
+    group  => wheel,
+    owner  => root,
+  }
 }
 

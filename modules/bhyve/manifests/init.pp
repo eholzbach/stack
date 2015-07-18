@@ -55,6 +55,16 @@ class bhyve {
     require => File['/usr/local/bhyve'],
   }
 
+  file { 'backups.sh':
+    ensure  => file,
+    group   => wheel,
+    mode    => '0755',
+    owner   => root,
+    path    => '/usr/local/bhyve/vm/backups.sh',
+    require => File['/usr/local/bhyve/vm'],
+    source  => 'puppet:///modules/bhyve/backups.sh',
+  }
+
   file { 'logs.map':
     ensure  => file,
     group   => wheel,

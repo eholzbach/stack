@@ -49,6 +49,8 @@ class baseline () {
 
   if $::kernel == 'FreeBSD' {
 
+    require pkgng
+
     augeas { 'default_rc_conf':
       context => '/files/etc/rc.conf',
       changes => [

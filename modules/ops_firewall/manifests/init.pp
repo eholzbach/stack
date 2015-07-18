@@ -8,7 +8,7 @@ class ops_firewall {
   }
 
   # enforce order 
-  Class['ops_firewall::pre'] -> Class['ops_firewall::mid'] -> Class['ops_firewall::post'] 
+  Class['ops_firewall::pre'] -> Class['ops_firewall::mid'] -> Class['ops_firewall::post']
 
   # declare
   include ops_firewall::pre
@@ -17,5 +17,13 @@ class ops_firewall {
 
   if $::operatingsystem == 'Debian' {
     package { 'iptables-persistent': ensure => installed }
+
+    file { '/etc/network/if-pre-up.d/iptables':
+      ensure => file,
+      group  => root,
+      mode   => '0755',
+      owner  => root,
+      source => 'puppet:///modules/ops_firewall/iptables',
+    }
   }
 }
