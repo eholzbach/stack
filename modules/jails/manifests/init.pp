@@ -23,5 +23,10 @@ class jails (
     group  => wheel,
     owner  => root,
   }
-}
 
+  concat { '/etc/jail.conf':
+    group => wheel,
+    mode  => '0644',
+    owner => root,
+  }
+}

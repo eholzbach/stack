@@ -8,11 +8,8 @@ define jails::hosts (
   $mask              = undef,
 ) {
 
-  file { '/etc/jail.conf':
-    ensure  => file,
+  concat::fragment { "/etc/jail.conf-${name}":
     content => template('jails/jail.conf.erb'),
-    group   => wheel,
-    mode    => '0644',
-    owner   => root,
+    target  => '/etc/jail.conf',
   }
 }

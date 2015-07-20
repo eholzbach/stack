@@ -1,4 +1,3 @@
-<% @jailhost.each_pair do |jailhost| -%>
 <%= @name %> {
         allow.mount;
         allow.raw_sockets = <%= allow_raw_sockets %>;
@@ -23,4 +22,3 @@
         vnet;
         vnet.interface = "<%= interface %>";
 }
-<% end -%>
