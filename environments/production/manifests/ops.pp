@@ -16,9 +16,14 @@ node 'ops1.fightingsquid.net' {
         retentions => '1m:90d',
       },
       {
-        name       => '^collectd',
+        name       => 'collectd',
         pattern    => '^collectd.*',
         retentions => '10s:1d,1m:7d,5m:2y',
+      },
+      {
+        name       => 'fitbit',
+        pattern    => '^fitbit.*',
+        retentions => '1m:1d,1m:7d,1m:50y',
       },
       {
         name       => 'default',
@@ -39,8 +44,9 @@ node 'proteus.fightingsquid.net' {
 
   tarsnap::periodic { 'echo-proteus':
     dirs    => [ '/home/echo' ],
-    exclude => [ '/home/echo/.bitcoin', '/home/echo/.litecoin', '/home/echo/media',
-                 '/home/echo/.vagrant.d', '/home/echo/VirtualBox\ VMs', '/home/echo/tmp/torrents' ],
+    exclude => [  '/home/echo/.bitcoin', '/home/echo/.litecoin',
+                  '/home/echo/media', '/home/echo/.vagrant.d',
+                  '/home/echo/VirtualBox\ VMs', '/home/echo/tmp/torrents' ],
     hour    => 1,
     minute  => 00,
     weekday => 7,
@@ -60,7 +66,7 @@ node 'proxy.fightingsquid.net' {
     ports            => '514',
     mode             => 'tcp',
     options          => {
-      'option'  => [
+      'option' => [
       'tcplog',
       ],
     }
@@ -79,7 +85,7 @@ node 'proxy.fightingsquid.net' {
     ports            => '80',
     mode             => 'tcp',
     options          => {
-      'option'  => [
+      'option' => [
       'tcplog',
       ],
     }
@@ -97,7 +103,7 @@ node 'proxy.fightingsquid.net' {
     ports            => '443',
     mode             => 'tcp',
     options          => {
-      'option'  => [
+      'option' => [
       'tcplog',
       ],
     }
@@ -115,7 +121,7 @@ node 'proxy.fightingsquid.net' {
     ports            => '8140',
     mode             => 'tcp',
     options          => {
-      'option'  => [
+      'option' => [
       'tcplog',
       ],
     }
