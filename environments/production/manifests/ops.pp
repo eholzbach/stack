@@ -17,13 +17,18 @@ node 'ops1.fightingsquid.net' {
       },
       {
         name       => 'collectd',
-        pattern    => '^collectd.*',
+        pattern    => '^collectd\.',
         retentions => '10s:1d,1m:7d,5m:2y',
       },
       {
         name       => 'fitbit',
-        pattern    => '^fitbit.*',
-        retentions => '1m:1d,1m:7d,1m:50y',
+        pattern    => '^human\.fitbit\.intraday\.*',
+        retentions => '1m:20y',
+      },
+      { 
+        name       => 'fitbitsum',
+        pattern    => '^human\.fitbit\.summary\.*',
+        retentions => '1d:20y',
       },
       {
         name       => 'default',

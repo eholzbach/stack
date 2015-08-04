@@ -42,10 +42,10 @@ class baseline () {
   package { 'curl':    ensure => latest }
   package { 'rsync':   ensure => latest }
   package { 'screen':  ensure => latest }
+  package { 'sudo':    ensure => latest }
   package { 'tcpdump': ensure => latest }
   package { 'vim':     ensure => latest }
   package { 'zsh':     ensure => latest }
-
 
   if $::kernel == 'FreeBSD' {
 
