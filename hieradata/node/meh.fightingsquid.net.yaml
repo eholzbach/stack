@@ -1,2 +1,24 @@
 classes:
-  - nrpe::services::apache
+  - nginx
+  - nrpe::services::nginx
+
+nginx::nginx_vhosts:
+  'ehnet':
+    server_name:
+      - ericholzbach.net
+      - www.ericholzbach.net
+    www_root: '/usr/local/www'
+  'squid':
+    server_name:
+      - fightingsquid.net
+      - www.fightingsquid.net
+    www_root: '/usr/local/www/squid'
+nginx::nginx_locations:
+  'status':
+    location: /nginx_status
+    location_allow:
+      - 127.0.0.1
+    location_deny:
+      - all
+    stub_status: true
+    vhost: ehnet

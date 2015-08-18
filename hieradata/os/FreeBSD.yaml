@@ -18,7 +18,7 @@ sshd_name:    sshd
 # collectd
 collectd::basedir:    /var/db/collectd
 collectd::etc_path:   /usr/local/etc
-collectd::pkgname:    collectd5
+collectd::pkgname:    net-mgmt/collectd5 
 collectd::plugindir:  /usr/local/lib/collectd
 collectd::root_group: wheel
 collectd::typesdb:    /usr/local/share/collectd/types.db

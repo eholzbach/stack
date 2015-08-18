@@ -14,7 +14,7 @@ class collectd (
   $nagios_host = hiera('nagios_host')
  
   package { 'collectd':
-    ensure => latest,
+    ensure => installed,
     name   => $pkgname,
   }
 

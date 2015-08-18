@@ -74,7 +74,7 @@ LoadPlugin memory
 #LoadPlugin netlink
 #LoadPlugin network
 #LoadPlugin nfs
-#LoadPlugin nginx
+LoadPlugin nginx
 #LoadPlugin notify_desktop
 #LoadPlugin notify_email
 #LoadPlugin ntpd
@@ -499,14 +499,12 @@ LoadPlugin write_graphite
 #	CacheFlush 1800
 #</Plugin>
 
-#<Plugin nginx>
-#	URL "http://localhost/status?auto"
-#	User "www-user"
-#	Password "secret"
-#	VerifyPeer false
-#	VerifyHost false
+<Plugin nginx>
+	URL "http://localhost/nginx_status"
+	VerifyPeer false
+	VerifyHost false
 #	CACert "/etc/ssl/ca.crt"
-#</Plugin>
+</Plugin>
 
 #<Plugin notify_desktop>
 #	OkayTimeout 1000

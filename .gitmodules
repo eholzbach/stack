@@ -46,3 +46,6 @@
 [submodule "modules/tarsnap"]
 	path = modules/tarsnap
 	url = https://github.com/eholzbach/puppet-tarsnap.git
+[submodule "modules/nginx"]
+	path = modules/nginx
+	url = https://github.com/jfryman/puppet-nginx.git
