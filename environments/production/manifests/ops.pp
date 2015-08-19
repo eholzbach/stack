@@ -9,7 +9,7 @@ node 'ops1.fightingsquid.net' {
 
   class { 'graphite':
     gr_timezone        => 'America/Los_Angeles',
-    gr_web_server      => 'nginx',
+    gr_web_server      => 'none',
     gr_storage_schemas => [
       {
         name       => 'carbon',
