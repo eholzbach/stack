@@ -9,6 +9,7 @@ class baseline () {
   $mortal_pass    = hiera('mortal_pass')
   $mortal_keytype = hiera('mortal_keytype')
   $pip_name       = hiera('pip_name')
+  $root_group     = hiera('root_group')
   $shell          = hiera('shell')
   $sshd_name      = hiera('sshd_name')
   $usr_bin        = hiera('usr_bin')
@@ -31,6 +32,14 @@ class baseline () {
     minute  => ['30'],
     target  => 'root',
     user    => 'root',
+  }
+
+  file { '/etc/motd':
+    ensure  => file,
+    content => template('baseline/motd.erb'),
+    group   => $root_group,
+    mode    => '0644',
+    owner   => 'root',
   }
 
   package { 'pip':
