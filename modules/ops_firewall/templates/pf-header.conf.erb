@@ -1,0 +1,7 @@
+table <whitelist> persist file "/etc/pf.whitelist.conf"
+pass in quick from <whitelist> to any keep state
+table <blockedips> persist file "/etc/pf.blocked.conf"
+block drop in log (all) quick on <%= @gwiface %> from <blockedips> to any
+table <ossec_fwtable> persist 
+block drop in log (all) quick on <%= @gwiface %> from <ossec_fwtable> to any
+pass in quick on <%= @gwiface %> inet proto icmp from any to <%= @gwiface %> icmp-type echoreq

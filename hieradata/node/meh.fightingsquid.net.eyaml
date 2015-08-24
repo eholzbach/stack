@@ -1,6 +1,7 @@
 classes:
   - nginx
   - nrpe::services::nginx
+  - ops_firewall
 
 nginx::nginx_vhosts:
   'ehnet':
@@ -22,3 +23,21 @@ nginx::nginx_locations:
       - all
     stub_status: true
     vhost: ehnet
+
+ops_firewall::pf_mid:
+  'ssh':
+    proto:  tcp
+    from:   any
+    port:   22
+  'http':
+    proto:  tcp
+    from:   any
+    port:   80
+  'nrpe':
+    proto:  tcp
+    from:   nagios.fightingsquid.net
+    port:   5666
+  'bo2k':
+    proto:  tcp
+    from:   nagios.fightingsquid.net
+    port:   15151

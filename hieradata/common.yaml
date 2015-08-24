@@ -49,5 +49,15 @@ ops_firewall::post:
     proto:       all
     action:      drop
 
+ops_firewall::pf_mid:
+  'ssh':
+    proto:  tcp
+    from:   any
+    port:   22
+  'nrpe':
+    proto:  tcp
+    from:   any
+    port:   5666
+
 rsyslog::client::log_local: true
 rsyslog::client::server:    logs.fightingsquid.net 

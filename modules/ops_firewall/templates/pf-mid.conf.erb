@@ -1,0 +1,4 @@
+<% pf_midrules.each do |k,v| -%>
+#<%= k %>
+pass in quick on <%= @gwiface %> inet proto <%= v['proto'] %> from <%= v['from'] %> to <%= @gwiface %> port <%= v['port'] %> 
+<% end -%> 
