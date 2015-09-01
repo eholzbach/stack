@@ -1,13 +1,27 @@
 classes:
+  - grafana
   - nginx
   - nrpe::services::graphite
   - nrpe::services::nginx
   - ops_firewall
 
+grafana::cfg:
+  server:
+    http_addr:       127.0.0.1
+    http_port:       3001
+  security:
+    admin_user:      ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAP9QtnwNoi6qCnhIIKaZZG87u5K+CV1zysH3+gxxoDgKZ3MwDF0HULwMd7/aWclMda4DTM86UYeZxV3Hsmhaj29yio7pQY2+9/eD0zkJCR06UKbUPwtAQEF0wIsNZ2Fs00X5Okz/BsPM2jwes1iKaAo65+DPyetlGCNxmegxHTN20nqe1J7QCJaCOXwJ4JiIR+rmhUt1DR52xKjPIEDnSuGN1AViHgPX1yF4UghlaqdiAnsU7X8DcMJ3xeWc+jgWYY9+n9iFsPM9l4HKVrLJ+sY9aNh1IeLzbFFoiiUZDBM4YPe4H7fZrqyKTTfEva1bNMnDND6wZaOvBQTBpD3LHJDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBNjvKnJlmplIetM7mQN5YBgBAmvVSSPlSKhoE1Q1P+fKXQ]
+    admin_password:  ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAqZljx7Rdk7YFfyVNnbHpWMinWefVfj+q89N/TEJDx6zni81zC66hzFBOZbnSnOCAPW1qKYLoHjMnALzhnsniBqIyQXus3lRjsIFpGHpWfr5v+tgiTposHy7pRMdVGFq10XTgnZpo53fRrgSyvJhW3iWpmzP0spoHmRedtLxduuKy6C3JV03ENagkf1OnCsa7RlV1/Gv74p7+lirlswL5p04teD8z5XHPBYBsBQW7Ut/tqN16F/YZXwgkukp6oYHUjiuQ4/zAm17dyYLrD9xm2ToR0KrM0KWa1YQqNTrepROp+MBs0zIaVThCsM0tvBVX9b8K9s8FVWyA0bOF2a4ftjA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAqXcGXaybObq5WqUNWsQipgBDSLZ65fkbK025b/+lBaadT]
+  users:
+    allow_sign_up:   false
+  auth.anonymous:
+    enabled:         true
+
 nginx::nginx_vhosts:
   'graphite':
     server_name:
-      - ops1.fightingsquid.net 
+      - ops1.fightingsquid.net
+      - graphite.fightingsquid.net
     listen_port:           80
     access_log:            'off'
     error_log:             'off'
@@ -21,6 +35,14 @@ nginx::nginx_vhosts:
         - X-Real-IP $remote_addr
       proxy_pass_header:
         - Server
+  'grafana.fightingsquid.net':
+    index_files: []
+    listen_port:           80
+    access_log:            'off'
+    error_log:             'off'
+    proxy:                 http://localhost:3001
+    proxy_redirect:        'http://localhost:3001 /'
+
 nginx::nginx_locations:
   'status':
     location:    /nginx_status
@@ -46,6 +68,7 @@ ops_firewall::rules:
     port:
       - 80
       - 443
+      - 3000
     proto:  tcp
     action: accept
   '51 allow to carbon':

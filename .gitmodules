@@ -49,3 +49,9 @@
 [submodule "modules/nginx"]
 	path = modules/nginx
 	url = https://github.com/jfryman/puppet-nginx.git
+[submodule "modules/grafana"]
+	path = modules/grafana
+	url = https://github.com/eholzbach/puppet-grafana.git
+[submodule "modules/wget"]
+	path = modules/wget
+	url = https://github.com/eholzbach/puppet-wget.git
