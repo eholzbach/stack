@@ -28,7 +28,7 @@ class baseline () {
 
   cron { 'puppet-agent':
     ensure  => 'present',
-    command => "${usr_bin}/puppet agent --onetime --no-daemonize --splay --splaylimit 60",
+    command => "${usr_bin}/puppet agent --onetime --no-daemonize --splay --splaylimit 60 >/dev/null 2>&1",
     minute  => ['30'],
     target  => 'root',
     user    => 'root',

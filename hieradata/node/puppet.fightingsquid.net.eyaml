@@ -1,6 +1,6 @@
 classes:
   - backups
-  - nrpe::services::nginx
+  - nrpe::services::apache
   - nrpe::services::puppetmaster
   - ops_firewall
   - puppetmaster
