@@ -136,5 +136,24 @@ class baseline () {
       enable => false,
     }
   }
+
+  # meh ssl renewal
+  if $::hostname == 'meh' {
+    file { '/root/sslrenew.sh':
+      ensure => file,
+      group  => 'root',
+      mode   => '0755',
+      owner  => 'root',
+      source => 'puppet:///modules/baseline/sslrenew.sh',
+    }
+
+    cron { 'renew_ssl':
+      ensure  => 'present',
+      command => '/root/sslrenew.sh',
+      target  => 'root',
+      user    => 'root',
+      weekday => '0',
+    }
+  }
 }
 
