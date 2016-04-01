@@ -9,6 +9,11 @@ nginx::nginx_vhosts:
       - ericholzbach.net
       - www.ericholzbach.net
     www_root: '/usr/local/www'
+    ssl:           true
+    ssl_cert:      /etc/letsencrypt/live/ericholzbach.net/fullchain.pem
+    ssl_key:       /etc/letsencrypt/live/ericholzbach.net/privkey.pem 
+    ssl_protocols: 'TLSv1 TLSv1.1 TLSv1.2'
+    ssl_ciphers:   'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH'
   'squid':
     server_name:
       - fightingsquid.net
